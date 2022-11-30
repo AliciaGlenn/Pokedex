@@ -1,5 +1,3 @@
-// const mongoose = require("./connection");
-
 const pokemons = [
   {
     id: "001",
@@ -61606,5 +61604,4 @@ const pokemons = [
   },
 ];
 
-
-module.exports = pokemons
+module.exports = pokemons;
