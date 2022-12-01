@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Pokemon App</title>
+  </head>
+  <body>
+    <h1>Edit Pokemon Page</h1>
+    <!--  ADD action attribute to form tag-->
+    <form action="/pokemons" method="post">
+      <input
+        type="text"
+        name="name"
+        placeholder="Pokemon Name"
+        value="<%=pokemon.name %>"
+      />
+      <input type="text" name="type" placeholder="add poke type" />
+      <input type="number" name="HP" placeholder="HP" />
+      <input type="number" name="Attack" placeholder="attack" />
+      <input type="number" name="Defense" placeholder="Defense" />
+      <label>upload pokemon image</label>
+      <input
+        type="file"
+        name="img"
+        accept="image/*"
+        placeholder="upload poke pic"
+      />
+      <input type="submit" name="" value="Submit Changes" />
+    </form>
+  </body>
+</html>

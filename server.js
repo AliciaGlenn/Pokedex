@@ -45,14 +45,19 @@ app.delete("/pokemons/:id", (req, res) => {
   res.redirect("/pokemons"); //redirect back to index route
 });
 
+// update route
+app.put("/pokemons/:id", (req, res) => {
+  pokemons[req.params.id] = req.body; //in our fruits array, find the index that is specified in the url (:indexOfFruitsArray).  Set that element to the value of req.body (the input data)
+  res.redirect("/pokemons"); //redirect to the index page
+});
+
 // edit route
-app.get("/pokemons/:id", (req, res) => {
+app.get("/pokemons/:id/edit", (req, res) => {
   res.render(
     "edit.ejs", //render views/edit.ejs
     {
       //pass in an object that contains
       pokemon: pokemons[req.params.id], //the pokemon object
-      index: req.params.id, //... and its index in the array
     }
   );
 });
@@ -63,7 +68,11 @@ app.post("/pokemons", (req, res) => {
 });
 
 app.get("/pokemons/:id", (req, res) => {
-  res.render("show.ejs", { pokemon: pokemons[req.params.id] });
+  res.render("show.ejs", {
+    //second param must be an object
+    pokemon: pokemons[req.params.id],
+    index: req.params.id,
+  });
 });
 
 //////////////////////////////////////////////
