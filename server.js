@@ -45,12 +45,6 @@ app.delete("/pokemons/:id", (req, res) => {
   res.redirect("/pokemons"); //redirect back to index route
 });
 
-// update route
-app.put("/pokemons/:id", (req, res) => {
-  pokemons[req.params.id] = req.body; //in our fruits array, find the index that is specified in the url (:indexOfFruitsArray).  Set that element to the value of req.body (the input data)
-  res.redirect("/pokemons"); //redirect to the index page
-});
-
 // edit route
 app.get("/pokemons/:id/edit", (req, res) => {
   res.render(
@@ -62,9 +56,15 @@ app.get("/pokemons/:id/edit", (req, res) => {
   );
 });
 
-app.post("/pokemons", (req, res) => {
+app.post("/pokemons/:id", (req, res) => {
   pokemons.push(req.body);
   res.redirect("/pokemons");
+});
+
+// update route
+app.put("/pokemons/:id", (req, res) => {
+  pokemons[req.params.id] = req.body; //in our fruits array, find the index that is specified in the url (:indexOfFruitsArray).  Set that element to the value of req.body (the input data)
+  res.redirect("/pokemons"); //redirect to the index page
 });
 
 app.get("/pokemons/:id", (req, res) => {
