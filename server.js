@@ -52,11 +52,12 @@ app.get("/pokemons/:id/edit", (req, res) => {
     {
       //pass in an object that contains
       pokemon: pokemons[req.params.id], //the pokemon object
+      index: req.params.id,
     }
   );
 });
 
-app.post("/pokemons/:id", (req, res) => {
+app.post("/pokemons", (req, res) => {
   pokemons.push(req.body);
   res.redirect("/pokemons");
 });
